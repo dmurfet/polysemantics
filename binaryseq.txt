@@ -3,6 +3,7 @@
 //
 
 option(noredefine);option(noloadLib);
+LIB "polysem.lib";
 int k = 2;
 ring rr=0,(a(1..k)(1..k),ap(1..k)(1..k)),dp;
 
@@ -23,3 +24,8 @@ for(i=1;i<=k;i++)
 // Produce a matrix of polynomials tS
 // Convert that matrix of polynomials to a vector of its coefficients
 // Output that vector to some format that Python can import
+
+int L = 4; // max total weight of monomials
+int numVars = nvars(basering);
+list monoms = monomialdict(L, numVars);
+int Q = size(monoms);

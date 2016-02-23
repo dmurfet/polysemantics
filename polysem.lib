@@ -1,0 +1,153 @@
+version="1.0";
+category="Miscellaneous";
+info="
+LIBRARY:   polysem.lib  Polynomial semantics of linear logic
+AUTHOR:    Daniel Murfet
+
+PROCEDURES:
+";
+
+// NOTE: We include a version of matrix.lib which suppresses some
+// unnecessary output from the procedure "rowred"
+LIB "linalg.lib";
+LIB "matrix.lib";
+LIB "ring.lib";
+
+////////////////////////////////////////////////////////////////////
+// USAGE GUIDE
+//
+	
+////////////////////////////////////////////////////////////////////
+// monomialdict
+//
+// Given integers k >= 1 and nv >= 1 returns all intvecs of length
+// nv with sum <= k.
+
+proc monomialdict(int k, int nv)
+{
+ 	int i;
+ 	list monoms;
+ 	for(i=0; i<=k; i++)
+ 	{
+		monoms = monoms + partitions(i, nv);
+	}
+	
+	return(monoms);
+}
+
+////////////////////////////////////////////////////////////////////
+// partitions
+//
+// Given integers N and M with N >= 0 and M > 0 returns all elements
+// in NN^M which sum to N (here NN means non-negative integers) as a list
+// of intvecs.
+
+proc partitions(int N, int M)
+{
+	if( N < 0 || M <= 0 )
+	{
+		print("[partitions] Bad integers, exiting.");
+		return();
+	}
+	
+	if( M == 1 )
+	{
+		return(list(intvec(N)));
+	}
+	
+	list P;
+    int i, j;
+    
+    for( i=0; i<=N; i++)
+    {
+    	list miniP = partitions(N-i, M-1);
+    
+    	for( j = 1; j<=size(miniP); j++ )
+    	{
+    		P = P + list( concat_intvec( intvec(i), miniP[j] ) );
+    	}
+    }
+    
+    return(P);
+}
+
+////////////////////////////////////////////////////////////////////
+// displayIndices
+
+proc displayIndices(int k)
+{
+	int numVars = nvars(basering);
+	list monoms = monomialdict(k, numVars);
+ 	
+ 	print("Monomials of total degree <= " + string(k));
+	print("");
+ 	
+ 	int i;
+ 	for(i=1;i<=size(monoms);i++)
+ 	{
+ 		print(string(i) + "    " + string(monomial(monoms[i])) + "    [" + string(monoms[i]) + "]");
+ 	}
+}
+
+////////////////////////////////////////////////////////////////////
+// seqsfrominterval
+//
+// Given an integer N >=1 and M >= 1 return the set of all sequences
+// of integers of length M with entries in 1,...,N
+
+proc seqsfrominterval(int N, int M)
+{
+	if( M == 1 )
+	{
+		list L;
+		int i;
+		for(i=1;i<=N;i++)
+		{
+			L = L + list(intvec(i));
+		}
+		return(L);
+	}
+	
+	list L_small = seqsfrominterval(N, M-1);
+	
+	list L;
+	int i,j,k;
+	intvec v;
+	
+	for(i=1;i<=N;i++)
+	{
+		for(j=1;j<=size(L_small);j++)
+		{
+			v[1] = i;
+			
+			for(k=1;k<=M-1;k++)
+			{
+				v[k+1] = (L_small[j])[k];
+			}
+			
+			L = L + list(v);
+		}
+	}
+	
+	return(L);
+}
+
+proc concat_intvec( intvec L, intvec R )
+{
+	int n = size(L);
+	int m = size(R);
+	intvec ret;
+	
+	int i;
+	for(i=1;i<=n;i++)
+	{
+		ret[i] = L[i];
+	}
+	
+	for(i=1;i<=m;i++ )
+	{
+		ret[n+i] = R[i];
+	}
+	
+	return(ret);
+}
