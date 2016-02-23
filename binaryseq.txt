@@ -1,0 +1,25 @@
+/////////////////////////////////////////////////////////////////////////////
+// Polynomial semantics of binary sequences
+//
+
+option(noredefine);option(noloadLib);
+int k = 2;
+ring rr=0,(a(1..k)(1..k),ap(1..k)(1..k)),dp;
+
+matrix U[k][k];
+matrix Up[k][k];
+
+int i,j;
+for(i=1;i<=k;i++)
+{
+    for(j=1;j<=k;j++)
+    {
+        U[i,j] = a(i)(j);
+        Up[i,j] = ap(i)(j);   
+    }
+}
+
+// Given a binary sequence S (list? vector?)
+// Produce a matrix of polynomials tS
+// Convert that matrix of polynomials to a vector of its coefficients
+// Output that vector to some format that Python can import
