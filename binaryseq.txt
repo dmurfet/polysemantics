@@ -20,12 +20,31 @@ for(i=1;i<=k;i++)
     }
 }
 
-// Given a binary sequence S (list? vector?)
-// Produce a matrix of polynomials tS
-// Convert that matrix of polynomials to a vector of its coefficients
-// Output that vector to some format that Python can import
+int L = 3;
 
-int L = 4; // max total weight of monomials
-int numVars = nvars(basering);
-list monoms = monomialdict(L, numVars);
-int Q = size(monoms);
+// Create the list of all binary sequences of length L
+list allSeq = seqsfrominterval(2, L);
+
+int s;
+for(s=1;s<=size(allSeq);s++)
+{
+    allSeq[s] = allSeq[s] - 1;
+}
+
+// Generate the string representatives of tS
+list allStrings;
+for(s=1;s<=size(allSeq);s++)
+{
+	list vectorCoeffs = matrix_to_vect(sem_binaryseq(U,Up,allSeq[s]),L);
+	
+	string outStr;
+
+	for(i=1;i<=size(vectorCoeffs);i++)
+	{
+    	outStr = outStr + string(vectorCoeffs[i]);
+	}
+	
+	allStrings = allStrings + list(outStr);
+}
+
+// Output that vector to some format that Python can import

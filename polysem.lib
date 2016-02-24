@@ -18,6 +18,94 @@ LIB "ring.lib";
 //
 	
 ////////////////////////////////////////////////////////////////////
+// sem_binaryseq
+//
+// Given a binary sequence S encoded as an intvec with entires 0,1
+// returns the product of the given matrices A, B with A standing
+// for 0 and B standing for 1, e.g. given 001 returns A * A * B
+
+proc sem_binaryseq(matrix A, matrix B, intvec S)
+{
+	if( ncols(A) != nrows(A) || ncols(B) != nrows(B) || ncols(A) != ncols(B) )
+	{
+		print("[sem_binaryseq] Bad matrices, exiting.");
+		return();
+	}	
+	
+	int k = ncols(A);
+	matrix tS[k][k] = unitmat(k);
+
+	int i;
+	for(i=size(S);i>=1;i--)
+	{
+		if( S[i] == 0 )
+		{
+			tS = A * tS;
+		}
+		else
+		{
+			tS = B * tS;
+		}
+	}
+	
+	return(tS);
+}
+
+////////////////////////////////////////////////////////////////////
+// matrix_to_vect
+//
+// Given a matrix of polynomials, returns it as a list of coefficients.
+// We must be given the total weight of monomials L to truncate at
+
+proc matrix_to_vect(matrix A, int L)
+{
+	int numVars = nvars(basering);
+	list monoms = monomialdict(L, numVars);
+	int Q = size(monoms);
+
+	poly xprod = 1;
+	int i,j;
+	for(i=1; i<=numVars; i++)
+	{
+    	xprod = xprod * var(i);
+	}    
+    
+	list vectorCoeffs;
+	matrix koffer;
+	int a, b;
+	for(a=1;a<=Q;a++)
+	{
+    	for(i=1;i<=k;i++)
+	    {
+        	for(j=1;j<=k;j++)
+	        {
+        	// print("[a,i,j] = [" + string(a) + "," + string(i) + "," + string(j) + "] and poly is " + string(tS[i,j]));
+        	
+    	    	koffer = coef(A[i,j], xprod);
+        		int found = 0;
+        	
+	        	for(b=1; b<=ncols(koffer); b++)
+    	        {   
+					if( leadexp(koffer[1,b]) == monoms[a] )
+					{
+						found = 1;
+						//print("Found coeff is " + string(koffer[2,b]) );
+						vectorCoeffs = vectorCoeffs + list( number(koffer[2,b]) );   
+					}
+				}
+            
+				if( found == 0 )
+				{
+					vectorCoeffs = vectorCoeffs + list( 0 );
+				}
+        	}
+    	}
+	}
+
+	return(vectorCoeffs);
+}
+
+////////////////////////////////////////////////////////////////////
 // monomialdict
 //
 // Given integers k >= 1 and nv >= 1 returns all intvecs of length
