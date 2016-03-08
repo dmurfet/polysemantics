@@ -55,7 +55,11 @@ proc sem_binaryseq(matrix A, matrix B, intvec S)
 // matrix_to_vect
 //
 // Given a matrix of polynomials, returns it as a list of coefficients.
-// We must be given the total weight of monomials L to truncate at
+// We must be given the total weight of monomials L to truncate at.
+//
+// The ordering in which we write out the coefficients is as follows.
+// The outer loop is the set of monomials of weight <= L, then the row,
+// then the column. The monomials are ordered by grevlex.
 
 proc matrix_to_vect(matrix A, int L)
 {
@@ -79,8 +83,6 @@ proc matrix_to_vect(matrix A, int L)
 	    {
         	for(j=1;j<=k;j++)
 	        {
-        	// print("[a,i,j] = [" + string(a) + "," + string(i) + "," + string(j) + "] and poly is " + string(tS[i,j]));
-        	
     	    	koffer = coef(A[i,j], xprod);
         		int found = 0;
         	
@@ -89,7 +91,6 @@ proc matrix_to_vect(matrix A, int L)
 					if( leadexp(koffer[1,b]) == monoms[a] )
 					{
 						found = 1;
-						//print("Found coeff is " + string(koffer[2,b]) );
 						vectorCoeffs = vectorCoeffs + list( number(koffer[2,b]) );   
 					}
 				}
@@ -110,6 +111,12 @@ proc matrix_to_vect(matrix A, int L)
 //
 // Given integers k >= 1 and nv >= 1 returns all intvecs of length
 // nv with sum <= k.
+//
+// The order is by
+//    - sum, from zero up to k
+//    - for a fixed sum, in lexicographic order
+//
+// That is, the monomials are ordered according to grevlex
 
 proc monomialdict(int k, int nv)
 {

@@ -20,7 +20,7 @@ for(i=1;i<=k;i++)
     }
 }
 
-int L = 3;
+int L = 5;
 
 // Create the list of all binary sequences of length L
 list allSeq = seqsfrominterval(2, L);
@@ -44,7 +44,7 @@ for(s=1;s<=size(allSeq);s++)
     	outStr = outStr + string(vectorCoeffs[i]);
 	}
 	
-	allStrings = allStrings + list(outStr);
+	allStrings = allStrings + list(list(allSeq[s],outStr));
 }
 
 // Output that vector to some format that Python can import
