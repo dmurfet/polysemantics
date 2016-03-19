@@ -32,7 +32,7 @@ for(s=1;s<=size(allSeq);s++)
 }
 
 // First line of the output file is the length of the vectors
-write(":w outfile.csv", size(matrix_to_vect(sem_binaryseq(U,Up,allSeq[1]),L)));
+// write(":w outfile.csv", size(matrix_to_vect(sem_binaryseq(U,Up,allSeq[1]),L)));
 
 // Generate the string representatives of tS
 list allStrings;
@@ -50,5 +50,5 @@ for(s=1;s<=size(allSeq);s++)
 	allStrings = allStrings + list(list(allSeq[s],outStr));
 	
 	// To file we write the second digit of the sequence and its coefficients
-	write(":a outfile.csv", allSeq[s][2], vectorCoeffs);
+	write(":a outfile.csv", list(allSeq[s][2], vectorCoeffs));
 }
