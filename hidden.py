@@ -5,7 +5,7 @@ import tensorflow as tf
 
 # Global variables.
 NUM_LABELS = 2    # The number of labels.
-BATCH_SIZE = 100  # The number of training examples to use per training step.
+BATCH_SIZE = 1  # The number of training examples to use per training step.
 
 tf.app.flags.DEFINE_string('train', None,
                            'File containing the training data (labels & features).')
