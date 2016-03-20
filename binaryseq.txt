@@ -34,21 +34,31 @@ for(s=1;s<=size(allSeq);s++)
 // First line of the output file is the length of the vectors
 // write(":w outfile.csv", size(matrix_to_vect(sem_binaryseq(U,Up,allSeq[1]),L)));
 
-// Generate the string representatives of tS
+// Generate the string representatives of tS. We write the results to a file,
+// with 2/3 of the strings randomly being written to the "training" file and
+// the remaining strings being written to the "eval" file
 list allStrings;
 for(s=1;s<=size(allSeq);s++)
 {
 	list vectorCoeffs = matrix_to_vect(sem_binaryseq(U,Up,allSeq[s]),L);
 	
-	string outStr;
+	// string outStr;
 
-	for(i=1;i<=size(vectorCoeffs);i++)
-	{
-    	outStr = outStr + string(vectorCoeffs[i]);
-	}
+	// for(i=1;i<=size(vectorCoeffs);i++)
+	// {
+    //	outStr = outStr + string(vectorCoeffs[i]);
+	//}
 	
-	allStrings = allStrings + list(list(allSeq[s],outStr));
+	//allStrings = allStrings + list(list(allSeq[s],outStr));
 	
 	// To file we write the second digit of the sequence and its coefficients
-	write(":a outfile.csv", list(allSeq[s][2], vectorCoeffs));
+	
+    if( random(1,3) > 1 )
+    {
+        write(":a data/outfile-length" + string(L) + "-train.csv", list(allSeq[s][2], vectorCoeffs));
+    }
+    else
+    {
+        write(":a data/outfile-length" + string(L) + "-eval.csv", list(allSeq[s][2], vectorCoeffs));
+    }
 }
