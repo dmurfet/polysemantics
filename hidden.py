@@ -128,10 +128,6 @@ def main(argv=None):
     	    print 'Initialized!'
     	    print
     	    print 'Training.'
-    	    
-    	# set num_epochs = 1 and BATCH_SIZE = train_size for plain vanilla training
-    	# TODO
-    	BATCH_SIZE = train_size
     	
     	# Iterate and train.
     	for step in xrange(num_epochs * train_size // BATCH_SIZE):
