@@ -129,8 +129,8 @@ def main(argv=None):
     	    print
     	    print 'Training.'
     	    
-    	# TODO to start with we just use simple training
-    	num_epochs = 1
+    	# set num_epochs = 1 and BATCH_SIZE = train_size for plain vanilla training
+    	# TODO
     	BATCH_SIZE = train_size
     	
     	# Iterate and train.
