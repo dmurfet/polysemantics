@@ -31,7 +31,8 @@ def extract_data(filename):
     for line in file(filename):
         row = line.strip('\n').split(",")
         labels.append(int(row[0]))
-        fvecs.append([float(x) for x in row[1:]]) # the 600 is a hack to avoid the \n
+        fvecs.append([float(x) for x in row[1:]])
+        print "Vector length " + str(len([float(x) for x in row[1:]]))
 
     # Convert the array of float arrays into a numpy float matrix.
     fvecs_np = np.matrix(fvecs).astype(np.float32)
