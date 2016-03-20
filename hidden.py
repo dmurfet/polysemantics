@@ -129,6 +129,10 @@ def main(argv=None):
     	    print
     	    print 'Training.'
     	    
+    	# TODO to start with we just use simple training
+    	num_epochs = 1
+    	BATCH_SIZE = train_size
+    	
     	# Iterate and train.
     	for step in xrange(num_epochs * train_size // BATCH_SIZE):
     	    if verbose:
