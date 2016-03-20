@@ -29,9 +29,9 @@ def extract_data(filename):
     # Iterate over the rows, splitting the label from the features. Convert labels
     # to integers and features to floats.
     for line in file(filename):
-        row = line.split(",")
+        row = line.strip('\n').split(",")
         labels.append(int(row[0]))
-        fvecs.append([float(x) for x in row[1:600]]) # the 600 is a hack to avoid the \n
+        fvecs.append([float(x) for x in row[1:]]) # the 600 is a hack to avoid the \n
 
     # Convert the array of float arrays into a numpy float matrix.
     fvecs_np = np.matrix(fvecs).astype(np.float32)
