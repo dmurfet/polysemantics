@@ -56,6 +56,7 @@ python hidden.py --train data/outfile-length6-train-sum_of_digits.csv --test dat
 The results are:
 
 ```
-with num_epochs 100 and num_hidden 5 we get 
-with num_epochs 100 and num_hidden 10 we get 
+with num_epochs 10 and num_hidden 5 we get 0.95, 0.975
 ```
+
+So, pretty good.
