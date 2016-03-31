@@ -20,7 +20,7 @@ for(i=1;i<=k;i++)
     }
 }
 
-int L = 6;
+int L = 7;
 
 // Create the list of all binary sequences of length L
 list allSeq = seqsfrominterval(2, L);
