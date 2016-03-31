@@ -100,7 +100,8 @@ def main(argv=None):
 
     # The hidden layer.
     hidden = tf.nn.tanh(tf.matmul(x,w_hidden) + b_hidden)
-    # subst tf.nn.relu here for rectified linear units
+    # subst tf.nn.relu here for rectified linear units, the original is tanh
+    # if you use relu, you should probably switch out `xavier` below for `uniform`
 
     # Initialize the output weights and biases.
     w_out = init_weights(
