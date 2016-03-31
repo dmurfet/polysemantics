@@ -1,5 +1,5 @@
 # polysemantics
-The polynomial semantics of linear logic interprets linear logic programs as matrices of polynomials. We compute these matrices using Singular and Python. If you have any questions, please don't hesitate to [get in touch](mailto:d.murfet@unimelb.edu.au).
+The polynomial semantics of linear logic interprets linear logic programs as matrices of polynomials. We compute these matrices using Singular and do machine learning on them with Python and TensorFlow. If you have any questions, please don't hesitate to [get in touch](mailto:d.murfet@unimelb.edu.au).
 
 # Installation & Usage
 
@@ -7,7 +7,7 @@ First you need a working installation of the commutative algebra package [Singul
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
 
-# Initial results
+# Logbook - learning second digit
 
 A binary sequence S (for example 001) can be encoded in linear logic by a proof, and the interpreted by the polynomial semantics as a matrix of polynomials. This matrix of polynomials can in turn be viewed as a vector with integer coefficients, by reading off in some principled way all the coefficients of the monomials in each entry of the matrix. Call this vector V(S). The initial test is to use a deep net classifier to learn the second digit of S from the vector V(S).
 
@@ -16,7 +16,7 @@ The vectors V(S) are computed by the Singular code in `binaryseq.txt`. Running t
 The network is trained with
 
 ```
-python hidden.py --train data/outfile-length7-train.csv --test data/outfile-length7-eval.csv --num_epochs 10 --num_hidden 5 --verbose True
+python hidden.py --train data/outfile-length7-train-second_digit.csv --test data/outfile-length7-eval-second_digit.csv --num_epochs 10 --num_hidden 5 --verbose True
 ```
 
 The results we get for various values of `num_epochs` and `num_hidden` are
@@ -28,4 +28,34 @@ with num_epochs 100 and num_hidden 5 we get 0.72, 0.67
 with num_epochs 100 and num_hidden 10 we get 0.72
 ```
 
-Obviously this is not very good, but probably we need more hidden layers.
+Obviously this is not very good; probably we need more hidden layers.
+
+Next we tried with a different initialisation, with weights to zero rather than randomly distributed. This was way worse
+
+```
+with num_epochs 100 and num_hidden 2 we get 0.49
+with num_epochs 100 and num_hidden 10 we get 0.49, 0.49
+```
+
+Ok, so we stick with `xavier` then. The above are both using `tanh` nonlinearities, using `relu` the results are
+
+```
+with num_epochs 100 and num_hidden 2 we get 0.49, 0.49
+with num_epochs 100 and num_hidden 10 (xavier init) we get 0.77
+with num_epochs 100 and num_hidden 10 (uniform init) we get 0.70, 0.72
+```
+
+# Logbook - learning binary sum
+
+Next we classify on the binary sum of the digits of S. With sequence length 6, `tanh` nonlinearity and `xavier` initialisation we use a command like
+
+```
+python hidden.py --train data/outfile-length6-train-sum_of_digits.csv --test data/outfile-length6-eval-sum_of_digits.csv --num_epochs 10 --num_hidden 5 --verbose True
+```
+
+The results are:
+
+```
+with num_epochs 100 and num_hidden 5 we get 
+with num_epochs 100 and num_hidden 10 we get 
+```
