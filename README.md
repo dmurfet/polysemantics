@@ -59,4 +59,10 @@ The results are:
 with num_epochs 10 and num_hidden 5 we get 0.95, 0.975
 ```
 
-So, pretty good.
+So, pretty good. Now we do the same thing with sequences of length 7, `tanh` and `xavier` again.
+
+```
+with num_epochs 10 and num_hidden 5 we get 0.974, 1.0
+```
+
+Probably we should choose a vector encoding with less zeros, so we can do longer sequences.
