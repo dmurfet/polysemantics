@@ -3,7 +3,7 @@ The polynomial semantics of linear logic interprets linear logic programs as mat
 
 # Installation & Usage
 
-First you need a working installation of the commutative algebra package [Singular](https://www.singular.uni-kl.de/). Singular is available for Linux, Windows and Mac OS X and is [easy to install](https://www.singular.uni-kl.de/index.php/singular-download.html). You will also need to have installed Python and [TensorFlow](https://www.tensorflow.org/). Probably the easiest way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo).
+First you need a working installation of the commutative algebra package [Singular](https://www.singular.uni-kl.de/). Singular is available for Linux, Windows and Mac OS X and is [easy to install](https://www.singular.uni-kl.de/index.php/singular-download.html). You will also need to have installed Python and [TensorFlow](https://www.tensorflow.org/). Probably the easiest way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo, on which our `hidden.py` is heavily based).
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
 
@@ -88,3 +88,7 @@ length 7: with num_epochs 10 and num_hidden 5 we get 1.0, 0.96, 0.98
 ```
 
 Next we try to visualise this with [TensorBoard](https://www.tensorflow.org/versions/r0.7/how_tos/summaries_and_tensorboard/index.html) (sample code [here](https://github.com/tensorflow/tensorflow/blob/r0.7/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py)). Note that you probably have to [install other stuff](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tensorboard/README.md). To open a port for the python webserver on an EC2 machine, see [these instructions](http://stackoverflow.com/questions/5004159/opening-port-80-ec2-amazon-web-services/10454688#10454688).
+
+```
+tensorboard --logdir=/home/ubuntu/polysemantics/mnist_logs
+```
