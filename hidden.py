@@ -60,8 +60,8 @@ def main(argv=None):
     sess = tf.InteractiveSession()
     
     # Get the data.
-    train_data_filename = "data/outfile-length" + str(FLAGS.length) + "-train-" + FLAGS.name
-    test_data_filename = "data/outfile-length" + str(FLAGS.length) + "-eval-" + FLAGS.name
+    train_data_filename = "data/outfile-length" + str(FLAGS.length) + "-train-" + FLAGS.name + ".csv"
+    test_data_filename = "data/outfile-length" + str(FLAGS.length) + "-eval-" + FLAGS.name + ".csv"
 
     # Extract it into numpy arrays.
     train_data,train_labels = extract_data(train_data_filename)
