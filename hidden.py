@@ -84,7 +84,7 @@ def main(argv=None):
     # training step using the {feed_dict} argument to the Run() call below.
     x = tf.placeholder("float", shape=[None, num_features])
     y_ = tf.placeholder("float", shape=[None, NUM_LABELS])
-    
+        
     # For the test data, hold the entire dataset in one constant node.
     test_data_node = tf.constant(test_data)
 
@@ -114,6 +114,11 @@ def main(argv=None):
     # The output layer.
     y = tf.nn.softmax(tf.matmul(hidden, w_out) + b_out)
     
+    # Stuff for tensorboard
+    w_hist = tf.histogram_summary("weights", w_hidden)
+    b_hist = tf.histogram_summary("biases", b_hidden)
+	y_hist = tf.histogram_summary("y", y)
+    
     # Optimization.
     cross_entropy = -tf.reduce_sum(y_*tf.log(y))
     train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
@@ -121,6 +126,13 @@ def main(argv=None):
     # Evaluation.
     correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+
+	accuracy_summary = tf.scalar_summary("accuracy", accuracy)
+	
+	# More tensorboard stuff: merge all the summaries and write them out
+	merged = tf.merge_all_summaries()
+	writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
+	tf.initialize_all_variables().run()
 
     # Create a local session to run this computation.
     with tf.Session() as s:

@@ -11,9 +11,9 @@ For an explanation of the mathematics behind this code, see [Murfet](http://arxi
 
 A binary sequence S (for example 001) can be encoded in linear logic by a proof, and the interpreted by the polynomial semantics as a matrix of polynomials. This matrix of polynomials can in turn be viewed as a vector with integer coefficients, by reading off in some principled way all the coefficients of the monomials in each entry of the matrix. Call this vector V(S). The initial test is to use a deep net classifier to learn the second digit of S from the vector V(S).
 
-The vectors V(S) are computed by the Singular code in `binaryseq.txt`. Running this code outputs all vectors for sequences S of length 7, randomnly putting half of the vectors in a file `data/outfile-length7-train.csv` and half in `data/outfile-length7-eval.csv`. The format of these files is that there is one row per sequence S, with the first entry being the second digit of S and the remaining entries making up the vector V(S).
+The vectors V(S) are computed by the Singular code in `binaryseq.txt`. Running this code outputs all vectors for sequences S of length L (where L is a variable set in the file) randomly putting half of the vectors in a file `data/outfile-lengthL-train.csv` and half in `data/outfile-lengthL-eval.csv`. The format of these files is that there is one row per sequence S, with the first entry being the second digit of S and the remaining entries making up the vector V(S).
 
-The network is trained with
+The network is trained with, e.g. for `L = 7`
 
 ```
 python hidden.py --train data/outfile-length7-train-second_digit.csv --test data/outfile-length7-eval-second_digit.csv --num_epochs 10 --num_hidden 5 --verbose True
@@ -65,4 +65,18 @@ So, pretty good. Now we do the same thing with sequences of length 7, `tanh` and
 with num_epochs 10 and num_hidden 5 we get 0.974, 1.0
 ```
 
-Probably we should choose a vector encoding with less zeros, so we can do longer sequences.
+Probably we should choose a vector encoding with less zeros, so we can do longer sequences. OK, we did that, and things still work: now we get `0.98, 0.98` on length 7, and it is significantly faster. Finally, on sequences of length 8 we get
+
+```
+with num_epochs 10 and num_hidden 5 we get 0.99, 1.0, 1.0
+```
+
+# Logbook - learning majority ones
+
+Classify a binary sequence S of length L as `1` if the number of ones occurring in S is greater than or equal to L/2, and as `0` otherwise. The results of learning this classification are:
+
+```
+length 5: with num_epochs 10 and num_hidden 5 we get 1.0, 0.82, 0.86
+length 6: with num_epochs 10 and num_hidden 5 we get 0.94, 0.86, 0.77
+length 7: with num_epochs 10 and num_hidden 5 we get 1.0, 0.96, 0.98
+```
