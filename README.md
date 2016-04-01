@@ -73,10 +73,18 @@ with num_epochs 10 and num_hidden 5 we get 0.99, 1.0, 1.0
 
 # Logbook - learning majority ones
 
-Classify a binary sequence S of length L as `1` if the number of ones occurring in S is greater than or equal to L/2, and as `0` otherwise. The results of learning this classification are:
+Classify a binary sequence S of length L as `1` if the number of ones occurring in S is greater than or equal to L/2, and as `0` otherwise. 
+
+```
+python hidden.py --train data/outfile-length7-train-half_ones.csv --test data/outfile-length7-eval-half_ones.csv --num_epochs 10 --num_hidden 5 --verbose True
+```
+
+The results of learning this classification are:
 
 ```
 length 5: with num_epochs 10 and num_hidden 5 we get 1.0, 0.82, 0.86
 length 6: with num_epochs 10 and num_hidden 5 we get 0.94, 0.86, 0.77
 length 7: with num_epochs 10 and num_hidden 5 we get 1.0, 0.96, 0.98
 ```
+
+Next we try to visualise this with [TensorBoard](https://www.tensorflow.org/versions/r0.7/how_tos/summaries_and_tensorboard/index.html) (sample code [here](https://github.com/tensorflow/tensorflow/blob/r0.7/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py)). Note that you probably have to [install other stuff](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tensorboard/README.md). To open a port for the python webserver on an EC2 machine, see [these instructions](http://stackoverflow.com/questions/5004159/opening-port-80-ec2-amazon-web-services/10454688#10454688).
