@@ -128,7 +128,7 @@ def main(argv=None):
 	
     # More tensorboard stuff: merge all the summaries and write them out
     merged = tf.merge_all_summaries()
-    summary_filename = "/home/ubuntu/polysemantics/logs/" + FLAGS.name
+    summary_filename = "/home/ubuntu/polysemantics/logs/" + FLAGS.name + "-length" + str(FLAGS.length)
     writer = tf.train.SummaryWriter(summary_filename, sess.graph_def)
     
     # Run all the initializers to prepare the trainable parameters.
