@@ -62,6 +62,9 @@ def main(argv=None):
     # Be verbose?
     verbose = FLAGS.verbose
     
+    # For tensorboard
+    sess = tf.InteractiveSession()
+    
     # Get the data.
     train_data_filename = FLAGS.train
     test_data_filename = FLAGS.test
