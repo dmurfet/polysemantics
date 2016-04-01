@@ -92,3 +92,12 @@ Next we try to visualise this with [TensorBoard](https://www.tensorflow.org/vers
 ```
 tensorboard --logdir=/home/ubuntu/polysemantics/mnist_logs
 ```
+
+# Logbook - change in input format
+
+Now we run `hidden.py` as follows, to train on length 7 sequences the `half_ones` type classifier, with log file written to `/home/ubuntu/polysemantis/logs/half_ones`:
+
+```
+python hidden.py --name half_ones --length 7 --num_epochs 10 --num_hidden 5
+tensorboard --logdir=/home/ubuntu/polysemantics/logs
+```
