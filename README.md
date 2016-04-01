@@ -65,4 +65,20 @@ So, pretty good. Now we do the same thing with sequences of length 7, `tanh` and
 with num_epochs 10 and num_hidden 5 we get 0.974, 1.0
 ```
 
-Probably we should choose a vector encoding with less zeros, so we can do longer sequences.
+Probably we should choose a vector encoding with less zeros, so we can do longer sequences. OK, we did that, and things still work: now we get `0.98, 0.98` on length 7, and it is significantly faster. Finally, on sequences of length 8 we get
+
+```
+with num_epochs 10 and num_hidden 5 we get 0.99, 1.0, 1.0
+```
+
+# Logbook - learning majority ones
+
+Classify a binary sequence S of length L as `1` if the number of ones occurring in S is greater than or equal to L/2, and as `0` otherwise.
+
+python hidden.py --train data/outfile-length7-train-half_ones.csv --test data/outfile-length7-eval-half_ones.csv --num_epochs 10 --num_hidden 5 --verbose True
+
+```
+length 5: with num_epochs 10 and num_hidden 5 we get 1.0, 0.82, 0.86
+length 6: with num_epochs 10 and num_hidden 5 we get 0.94, 0.86, 0.77
+length 7: with num_epochs 10 and num_hidden 5 we get 1.0, 0.96, 0.98
+```
