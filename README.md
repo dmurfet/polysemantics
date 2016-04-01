@@ -98,6 +98,10 @@ tensorboard --logdir=/home/ubuntu/polysemantics/mnist_logs
 Now we run `hidden.py` as follows, to train on length 7 sequences the `half_ones` type classifier, with log file written to `/home/ubuntu/polysemantis/logs/half_ones`:
 
 ```
+python hidden.py --name second_digit --length 6 --num_epochs 10 --num_hidden 5
+python hidden.py --name half_ones --length 6 --num_epochs 10 --num_hidden 5
 python hidden.py --name half_ones --length 7 --num_epochs 10 --num_hidden 5
+python hidden.py --name sum_of_digits --length 7 --num_epochs 10 --num_hidden 5
+python hidden.py --name sum_of_digits --length 8 --num_epochs 10 --num_hidden 5
 tensorboard --logdir=/home/ubuntu/polysemantics/logs
 ```
