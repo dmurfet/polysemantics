@@ -136,37 +136,25 @@ def main(argv=None):
     merged = tf.merge_all_summaries()
     writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
     
-    # Create a local session to run this computation.
-    with tf.Session() as s:
-        # Run all the initializers to prepare the trainable parameters.
-    	tf.initialize_all_variables().run()
-    	if verbose:
-    	    print 'Initialized!'
-    	    print
-    	    print 'Training.'
+    # Run all the initializers to prepare the trainable parameters.
+    tf.initialize_all_variables().run()
     	
-    	# Iterate and train.
-    	for step in xrange(num_epochs * train_size // BATCH_SIZE):
-    	    offset = (step * BATCH_SIZE) % train_size
-    	    batch_data = train_data[offset:(offset + BATCH_SIZE), :]
-            batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
-            feed={x: batch_data, y_: batch_labels}
+    print 'Initialized!'
+    print
+    print 'Training.'
+    	
+    # Iterate and train.
+    for step in xrange(num_epochs * train_size // BATCH_SIZE):
+        offset = (step * BATCH_SIZE) % train_size
+        batch_data = train_data[offset:(offset + BATCH_SIZE), :]
+        batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
+        feed={x: batch_data, y_: batch_labels}
     	        
-            result=sess.run([merged,accuracy],feed_dict=feed)
-            summary_str = result[0]
-            acc = result[1]
-            writer.add_summary(summary_str, step)
-            print("Accuracy at step %s: %s" % (step, acc))
-    	    
-    	    # new end
-    	    
-    	    #old    
-    	    #offset = (step * BATCH_SIZE) % train_size
-    	    #batch_data = train_data[offset:(offset + BATCH_SIZE), :]
-    	    #batch_labels = train_labels[offset:(offset + BATCH_SIZE)]
-    	    #train_step.run(feed_dict={x: batch_data, y_: batch_labels})
-    	    
-    	    #print "Accuracy:", accuracy.eval(feed_dict={x: test_data, y_: test_labels})
+        result=sess.run([merged,accuracy],feed_dict=feed)
+        summary_str = result[0]
+        acc = result[1]
+        writer.add_summary(summary_str, step)
+        print("Accuracy at step %s: %s" % (step, acc))
             
 if __name__ == '__main__':
     tf.app.run()
