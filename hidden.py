@@ -135,8 +135,7 @@ def main(argv=None):
     # More tensorboard stuff: merge all the summaries and write them out
     merged = tf.merge_all_summaries()
     writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
-    tf.initialize_all_variables().run()
-
+    
     # Create a local session to run this computation.
     with tf.Session() as s:
         # Run all the initializers to prepare the trainable parameters.
