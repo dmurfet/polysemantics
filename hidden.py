@@ -145,7 +145,7 @@ def main(argv=None):
     	
     # Iterate and train.
     for step in xrange(num_epochs * train_size // BATCH_SIZE):
-        if i % 10 == 0: # just test, no learning
+        if step % 10 == 0: # just test, no learning
             feed = {x: test_data, y_: test_labels}
             result=sess.run([merged,accuracy],feed_dict=feed)
             summary_str = result[0]
