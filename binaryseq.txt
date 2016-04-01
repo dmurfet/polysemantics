@@ -20,7 +20,7 @@ for(i=1;i<=k;i++)
     }
 }
 
-int L = 7;
+int L = 8;
 
 // Create the list of all binary sequences of length L
 list allSeq = seqsfrominterval(2, L);
@@ -29,6 +29,19 @@ int s;
 for(s=1;s<=size(allSeq);s++)
 {
     allSeq[s] = allSeq[s] - 1;
+}
+
+// Get all monoms of degree L (since those are the only ones with nonzero coeffs)
+int numVars = nvars(basering);
+list monoms = monomialdict(L, numVars);
+list sub_monoms;
+
+for(i=1;i<=size(monoms);i++)
+{
+    if( sum(monoms[i]) == L )
+    {
+        sub_monoms = sub_monoms + list(monoms[i]);
+    }
 }
 
 // First line of the output file is the length of the vectors
@@ -48,7 +61,8 @@ flag = "sum_of_digits"; // classifies sequences by the binary sum of their digit
 list allStrings;
 for(s=1;s<=size(allSeq);s++)
 {
-    list vectorCoeffs = matrix_to_vect(sem_binaryseq(U,Up,allSeq[s]),L);
+	// Only read out monomial coeffs of weight L (others are zero)
+    list vectorCoeffs = matrix_to_vect_givenmonoms(sem_binaryseq(U,Up,allSeq[s]),L,sub_monoms);
 	
 	// Decide what kind of output goes in the first position (i.e. the classifier)
     int class_output;

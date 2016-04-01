@@ -65,6 +65,15 @@ proc matrix_to_vect(matrix A, int L)
 {
 	int numVars = nvars(basering);
 	list monoms = monomialdict(L, numVars);
+	
+	list vectorCoeffs = matrix_to_vect_givenmonoms(A,L,monoms);
+	
+	return(vectorCoeffs);
+}
+
+proc matrix_to_vect_givenmonoms(matrix A, int L, list monoms)
+{
+	int numVars = nvars(basering);
 	int Q = size(monoms);
 
 	poly xprod = 1;
