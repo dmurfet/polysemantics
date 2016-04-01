@@ -7,12 +7,15 @@ import tensorflow as tf
 NUM_LABELS = 2    # The number of labels.
 BATCH_SIZE = 1  # The number of training examples to use per training step.
 
-tf.app.flags.DEFINE_string('name', None, 'Name of test to run')
-tf.app.flags.DEFINE_integer('length', None, 'Length of sequences')
+tf.app.flags.DEFINE_string('train', None,
+                           'File containing the training data (labels & features).')
+tf.app.flags.DEFINE_string('test', None,
+                           'File containing the test data (labels & features).')
 tf.app.flags.DEFINE_integer('num_epochs', 1,
                             'Number of passes over the training data.')
 tf.app.flags.DEFINE_integer('num_hidden', 1,
                             'Number of nodes in the hidden layer.')
+tf.app.flags.DEFINE_boolean('verbose', False, 'Produce verbose output.')
 FLAGS = tf.app.flags.FLAGS
 
 # Extract numpy representations of the labels and features given rows consisting of:
@@ -55,13 +58,16 @@ def init_weights(shape, init_method='xavier', xavier_params = (None, None)):
         high = 4*np.sqrt(6.0/(fan_in + fan_out))
         return tf.Variable(tf.random_uniform(shape, minval=low, maxval=high, dtype=tf.float32))
     
-def main(argv=None):    
+def main(argv=None):
+    # Be verbose?
+    verbose = FLAGS.verbose
+    
     # For tensorboard
     sess = tf.InteractiveSession()
     
     # Get the data.
-    train_data_filename = "data/outfile-length" + str(FLAGS.length) + "-train-" + FLAGS.name
-    test_data_filename = "data/outfile-length" + str(FLAGS.length) + "-eval-" + FLAGS.name
+    train_data_filename = FLAGS.train
+    test_data_filename = FLAGS.test
 
     # Extract it into numpy arrays.
     train_data,train_labels = extract_data(train_data_filename)
@@ -128,8 +134,7 @@ def main(argv=None):
 	
     # More tensorboard stuff: merge all the summaries and write them out
     merged = tf.merge_all_summaries()
-    summary_filename = "/home/ubuntu/polysemantis/logs/" + FLAGS.name
-    writer = tf.train.SummaryWriter(summary_filename, sess.graph_def)
+    writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
     
     # Run all the initializers to prepare the trainable parameters.
     tf.initialize_all_variables().run()
