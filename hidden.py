@@ -117,7 +117,7 @@ def main(argv=None):
     # Stuff for tensorboard
     w_hist = tf.histogram_summary("weights", w_hidden)
     b_hist = tf.histogram_summary("biases", b_hidden)
-	y_hist = tf.histogram_summary("y", y)
+    y_hist = tf.histogram_summary("y", y)
     
     # Optimization.
     cross_entropy = -tf.reduce_sum(y_*tf.log(y))
@@ -127,12 +127,12 @@ def main(argv=None):
     correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 
-	accuracy_summary = tf.scalar_summary("accuracy", accuracy)
+    accuracy_summary = tf.scalar_summary("accuracy", accuracy)
 	
-	# More tensorboard stuff: merge all the summaries and write them out
-	merged = tf.merge_all_summaries()
-	writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
-	tf.initialize_all_variables().run()
+    # More tensorboard stuff: merge all the summaries and write them out
+    merged = tf.merge_all_summaries()
+    writer = tf.train.SummaryWriter("/home/ubuntu/polysemantics/mnist_logs", sess.graph_def)
+    tf.initialize_all_variables().run()
 
     # Create a local session to run this computation.
     with tf.Session() as s:
