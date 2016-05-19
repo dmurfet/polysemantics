@@ -20,7 +20,7 @@ for(i=1;i<=k;i++)
     }
 }
 
-int L = 7;
+int L = 8;
 
 // Create the list of all binary sequences of length L
 list allSeq = seqsfrominterval(2, L);
@@ -55,9 +55,9 @@ print("[generating sequence data]");
 // Choose what kind of output to give
 string flag;
 
-//flag = "second_digit"; // classifies sequences by their second digit
+flag = "second_digit"; // classifies sequences by their second digit
 //flag = "sum_of_digits"; // classifies sequences by the binary sum of their digits
-flag = "half_ones"; // classifies sequences with more than half 1s
+//flag = "half_ones"; // classifies sequences with more than half 1s
 
 list allStrings;
 for(s=1;s<=size(allSeq);s++)
