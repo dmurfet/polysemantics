@@ -15,7 +15,7 @@ You can install Anaconda on Mac OS X using the package [here](https://www.contin
 /anaconda/bin/conda install -c jjhelmus tensorflow=0.9.0
 ```
 
-Then either by hand or using the Anaconda Navigator launch a Jupyter notebook. In there you can open and run the `Polysem.ipynb` file.
+Then either by hand or using the Anaconda Navigator launch a Jupyter notebook. In there you can open and run the `Polysem.ipynb` file. We use TensorFlow slim, the GitHub repo is [here](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/slim/python/slim) and some old docs are [here](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md).
 
 # Logbook - learning second digit
 
