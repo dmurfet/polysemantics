@@ -3,19 +3,17 @@ The polynomial semantics of linear logic interprets linear logic programs as mat
 
 # Installation & Usage
 
-First you need a working installation of the commutative algebra package [Singular](https://www.singular.uni-kl.de/). Singular is available for Linux, Windows and Mac OS X and is [easy to install](https://www.singular.uni-kl.de/index.php/singular-download.html). You will also need to have installed Python and [TensorFlow](https://www.tensorflow.org/). Probably the easiest way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo, on which our `hidden.py` is heavily based).
+First you need a working installation of the commutative algebra package [Singular](https://www.singular.uni-kl.de/). Singular is available for Linux, Windows and Mac OS X and is [easy to install](https://www.singular.uni-kl.de/index.php/singular-download.html). You will also need to have installed Python and [TensorFlow](https://www.tensorflow.org/). Probably the easiest way to do this is by installing the [Anaconda](https://www.continuum.io/downloads) distribution of Python 2.7 and then installing TensorFlow by running (with the Anaconda binaries in your PATH)
+
+```
+conda install -c jjhelmus tensorflow=0.9.0
+```
+
+There is documentation for [TensorFlow slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md).
+
+An alternative way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo, on which our `hidden.py` is heavily based).
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
-
-# Installation via Anaconda
-
-You can install Anaconda on Mac OS X using the package [here](https://www.continuum.io/downloads#_macosx). Then run
-
-```
-/anaconda/bin/conda install -c jjhelmus tensorflow=0.9.0
-```
-
-Then either by hand or using the Anaconda Navigator launch a Jupyter notebook. In there you can open and run the `Polysem.ipynb` file. We use TensorFlow slim, the GitHub repo is [here](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/slim/python/slim) and some old docs are [here](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md).
 
 # Logbook - learning second digit
 
