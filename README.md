@@ -7,6 +7,16 @@ First you need a working installation of the commutative algebra package [Singul
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
 
+# Installation via Anaconda
+
+You can install Anaconda on Mac OS X using the package [here](https://www.continuum.io/downloads#_macosx). Then run
+
+```
+/anaconda/bin/conda install -c jjhelmus tensorflow=0.9.0
+```
+
+Then either by hand or using the Anaconda Navigator launch a Jupyter notebook. In there you can open and run the `Polysem.ipynb` file.
+
 # Logbook - learning second digit
 
 A binary sequence S (for example 001) can be encoded in linear logic by a proof, and the interpreted by the polynomial semantics as a matrix of polynomials. This matrix of polynomials can in turn be viewed as a vector with integer coefficients, by reading off in some principled way all the coefficients of the monomials in each entry of the matrix. Call this vector V(S). The initial test is to use a deep net classifier to learn the second digit of S from the vector V(S).
