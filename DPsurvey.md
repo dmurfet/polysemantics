@@ -29,7 +29,7 @@ This is a preliminary survey of the literature on differential programming, by w
 
 Generally the sequence tasks are run either on sequences of binary numbers, sequences of vectors of binary numbers, or sequences of integers 0-9.
 
-* Copy (*given a sequence, return the same sequence*): [1], [3], [6], [9], [14].
+* **Copy** (*given a sequence, return the same sequence*): [1], [3], [6], [9], [14].
 * Repeat copy (*given a sequence S and integer N, return the sequence S repeated N times*): [1], [9].
 * Reverse (*given a sequence, return the reversed sequence*): [3], [6], [9], [14], [20].
 * Addition (*given a pair of sequences representing integers in some base, return the sequence representing their sum*): [2], [5], [6], [12], [20].
