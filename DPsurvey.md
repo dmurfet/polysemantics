@@ -1,11 +1,11 @@
 # Survey of differential programming
 
-This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network ``controller'' with a differentiable ``memory'' module of some kind. Our purpose here is to list the *models* used and the *benchmark* problems considered.
+This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network controller with a differentiable memory module. Our purpose here is to list the *models* used and the *benchmark problems* or tasks considered.
 
 ## The papers
 
-1. Alex Graves, Greg Wayne, Ivo Danihelka "Neural Turing machines" 2014 [link](https://arxiv.org/abs/1410.5401).
-2. Armand Joulin, Tomas Mikolov "Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets" 2015 [link](https://arxiv.org/abs/1503.01007).
+1. Alex Graves, Greg Wayne, Ivo Danihelka "*Neural Turing machines*" 2014 [link](https://arxiv.org/abs/1410.5401).
+2. Armand Joulin, Tomas Mikolov "*Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets*" 2015 [link](https://arxiv.org/abs/1503.01007).
 3. Edward Grefenstette, Karl Moritz Hermann, Mustafa Suleyman, Phil Blunsom "Learning to Transduce with Unbounded Memory" 2015 [link](https://arxiv.org/abs/1506.02516).
 4. Jason Weston, Sumit Chopra, Antoine Bordes "Memory Networks" 2014 [link](http://arxiv.org/abs/1410.3916).
 5. Scott Reed, Nando de Freitas "Neural Programmer-Interpreters" 2015 [link](https://arxiv.org/abs/1511.06279), [video](https://www.youtube.com/watch?v=B70tT4WMyJk).
