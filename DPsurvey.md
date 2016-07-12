@@ -1,11 +1,11 @@
 # Survey of differential programming
 
-This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network controller with a differentiable memory module. Our purpose here is to list the *models* used and the *benchmark problems* or tasks considered.
+This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network controller with a differentiable memory module. Some of the papers below are not directly about differential programming in this sense, but they are relevant to our approach to the subject. Our purpose here is to list the *models* used and the *benchmark problems* or tasks considered.
 
 ## The papers
 
-1. Alex Graves, Greg Wayne, Ivo Danihelka "*Neural Turing machines*" 2014 [link](https://arxiv.org/abs/1410.5401).
-2. Armand Joulin, Tomas Mikolov "*Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets*" 2015 [link](https://arxiv.org/abs/1503.01007).
+1. Alex Graves, Greg Wayne, Ivo Danihelka "Neural Turing machines" 2014 [link](https://arxiv.org/abs/1410.5401).
+2. Armand Joulin, Tomas Mikolov "Inferring Algorithmic Patterns with Stack-Augmented Recurrent Nets" 2015 [link](https://arxiv.org/abs/1503.01007).
 3. Edward Grefenstette, Karl Moritz Hermann, Mustafa Suleyman, Phil Blunsom "Learning to Transduce with Unbounded Memory" 2015 [link](https://arxiv.org/abs/1506.02516).
 4. Jason Weston, Sumit Chopra, Antoine Bordes "Memory Networks" 2014 [link](http://arxiv.org/abs/1410.3916).
 5. Scott Reed, Nando de Freitas "Neural Programmer-Interpreters" 2015 [link](https://arxiv.org/abs/1511.06279), [video](https://www.youtube.com/watch?v=B70tT4WMyJk).
@@ -22,4 +22,12 @@ This is a preliminary survey of the literature on differential programming, by w
 16. Adam Santoro, Sergey Bartunov, Matthew Botvinick, Daan Wierstra, Timothy Lillicrap "One-shot Learning with Memory-Augmented Neural Networks" 2016 [link](https://arxiv.org/abs/1605.06065).
 17. Yuhuai Wu, Saizheng Zhang, Ying Zhang, Yoshua Bengio, Ruslan Salakhutdinov "On Multiplicative Integration with Recurrent Neural Networks" 2016 [link](https://arxiv.org/abs/1606.06630).
 18. Ozan İrsoy, Claire Cardie "Modeling Compositionality with Multiplicative Recurrent Neural Networks" 2014 [link](https://arxiv.org/abs/1412.6577).
-19. Wojciech Zaremba's thesis "Learning algorithms from data" [link](http://www.cs.nyu.edu/media/publications/zaremba_wojciech.pdf).
+19. Wojciech Zaremba's thesis "Learning algorithms from data" 2016 [link](http://www.cs.nyu.edu/media/publications/zaremba_wojciech.pdf).
+
+## The models
+
+## The tasks
+
+* Copying
+* Reversing a list
+* Binary addition
