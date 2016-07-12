@@ -23,11 +23,13 @@ This is a preliminary survey of the literature on differential programming, by w
 17. Yuhuai Wu, Saizheng Zhang, Ying Zhang, Yoshua Bengio, Ruslan Salakhutdinov "On Multiplicative Integration with Recurrent Neural Networks" 2016 [link](https://arxiv.org/abs/1606.06630).
 18. Ozan İrsoy, Claire Cardie "Modeling Compositionality with Multiplicative Recurrent Neural Networks" 2014 [link](https://arxiv.org/abs/1412.6577).
 19. Wojciech Zaremba's thesis "Learning algorithms from data" 2016 [link](http://www.cs.nyu.edu/media/publications/zaremba_wojciech.pdf).
-
-## The models
+20. Marcin Andrychowicz, Karol Kurach "Learning Efficient Algorithms with Hierarchical Attentive Memory" 2016 [link](http://arxiv.org/abs/1602.03218).
 
 ## The tasks
 
 * Copying
-* Reversing a list
-* Binary addition
+* Reverse: [20]
+* Binary addition: [20]
+* Search: [20]
+* Merge: [20]
+* Sort: [20]
