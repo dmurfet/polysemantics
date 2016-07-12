@@ -1,6 +1,6 @@
 # Survey of differential programming
 
-This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network controller with a differentiable memory module. Some of the papers below are not directly about differential programming in this sense, but they are relevant to our approach to the subject. Our purpose here is to list the *models* used and the *benchmark problems* or tasks considered.
+This is a preliminary survey of the literature on differential programming, by which we mean a system which couples together some kind of deep neural network controller with a differentiable memory module. Some of the papers below are not directly about differential programming in this sense, but they are relevant to our approach to the subject. Our purpose here is to list the *models* used and the *benchmark tasks* considered.
 
 ## The papers
 
@@ -34,11 +34,11 @@ Generally the sequence tasks are run either on sequences of binary numbers, sequ
 * **Reverse** (*given a sequence, return the reversed sequence*): [3], [6], [9], [14], [20].
 * **Addition** (*given a pair of sequences representing integers in some base, return the sequence representing their sum*): [2], [5], [6], [12], [20].
 * **Multiplication** (*given a pair of sequences representing integers in some base, return the sequence representing their product*): [6], [12].
-* **Search**: [14], [20]
-* **Merge**: [14], [20]
+* **Search** (*given a sequence and a symbol, return the first index of the symbol in the sequence*): [14], [20]
+* **Merge** (*given a pair of sequences, merge them*): [14], [20]
 * **Sort** (*given a sequence of integers, return it in ascending order*): [1], [5], [20].
 * **Bigram flipping** (*given a sequence of even length, decompose it linearly into pairs and transpose each pair*): [3].
-* **De-duplicate** (*given a sequence in which every symbol is repeated consecutively N times, return the sequence with all duplicates identified*): [9].
+* **De-duplicate** (*given a sequence in which every symbol is repeated consecutively N times, return the sequence with all N duplicates identified*): [9].
 * **Array** (*given an index and a sequence, return the element of the sequence at that index*): [14].
 * **Increment** (*given a sequence of integers, increment each element*): [14].
 * **Swap** (*given a sequence and two indices, swap the symbols at those indices*): [14].
