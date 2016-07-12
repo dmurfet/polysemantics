@@ -27,9 +27,19 @@ This is a preliminary survey of the literature on differential programming, by w
 
 ## The tasks
 
-* Copying
-* Reverse: [20]
-* Binary addition: [20]
-* Search: [20]
-* Merge: [20]
-* Sort: [20]
+Generally the sequence tasks are run either on sequences of binary numbers, sequences of vectors of binary numbers, or sequences of integers 0-9.
+
+* Copy (*given a sequence, return the same sequence*): [1], [3], [6], [9], [14].
+* Repeat copy (*given a sequence S and integer N, return the sequence S repeated N times*): [1], [9].
+* Reverse (*given a sequence, return the reversed sequence*): [3], [6], [9], [14], [20].
+* Addition (*given a pair of sequences representing integers in some base, return the sequence representing their sum*): [2], [5], [6], [12], [20].
+* Multiplication (*given a pair of sequences representing integers in some base, return the sequence representing their product*): [6], [12].
+* Search: [14], [20]
+* Merge: [14], [20]
+* Sort (*given a sequence of integers, return it in ascending order*): [1], [5], [20].
+* Bigram flipping (*given a sequence of even length, decompose it linearly into pairs and transpose each pair*): [3].
+* De-duplicate (*given a sequence in which every symbol is repeated consecutively N times, return the sequence with all duplicates identified*): [9].
+* Array (*given an index and a sequence, return the element of the sequence at that index*): [14].
+* Increment (*given a sequence of integers, increment each element*): [14].
+* Swap (*given a sequence and two indices, swap the symbols at those indices*): [14].
+* Permutation (*given a sequence of integers representing a permutation, and an arbitrary sequence of the same length, permute the second sequence according to the first*): [14].
