@@ -15,7 +15,12 @@ For an explanation of the mathematics behind this code, see [Murfet](http://arxi
 
 ## Specific Jupyter instructions
 
-On an AWS machine install Anaconda simply by `wget` and then follow [these instructions](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html) to get Jupyter notebook serving off that machine. See the [official instructions](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html) if anything goes wrong.
+On an AWS machine install Anaconda simply by `wget` and then follow [these instructions](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html) to get Jupyter notebook serving off that machine. See the [official instructions](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html) if anything goes wrong. Hopefully all you need to do is run
+
+```
+cd ~/Notebooks
+jupyter notebook
+```
 
 # Logbook - learning second digit
 
