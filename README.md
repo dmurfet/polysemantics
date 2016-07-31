@@ -13,6 +13,10 @@ An alternative way to get TensorFlow working is to use an AMI with everything [a
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
 
+## Specific Jupyter instructions
+
+On an AWS machine install Anaconda simply by `wget` and then follow [these instructions](http://blog.impiyush.me/2015/02/running-ipython-notebook-server-on-aws.html) to get Jupyter notebook serving off that machine. See the [official instructions](http://jupyter-notebook.readthedocs.io/en/latest/public_server.html) if anything goes wrong.
+
 # Logbook - learning second digit
 
 A binary sequence S (for example 001) can be encoded in linear logic by a proof, and the interpreted by the polynomial semantics as a matrix of polynomials. This matrix of polynomials can in turn be viewed as a vector with integer coefficients, by reading off in some principled way all the coefficients of the monomials in each entry of the matrix. Call this vector V(S). The initial test is to use a deep net classifier to learn the second digit of S from the vector V(S).
