@@ -22,6 +22,8 @@ cd ~/Notebooks
 jupyter notebook
 ```
 
+Managing EBS volumes can get confusing, see [this](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html). Regarding running Jupyter Notebook on startup, see [these instructions](http://stackoverflow.com/questions/14297741/how-to-start-ipython-notebook-server-at-boot-as-daemon/14298766#14298766).
+
 # Logbook - learning second digit
 
 A binary sequence S (for example 001) can be encoded in linear logic by a proof, and the interpreted by the polynomial semantics as a matrix of polynomials. This matrix of polynomials can in turn be viewed as a vector with integer coefficients, by reading off in some principled way all the coefficients of the monomials in each entry of the matrix. Call this vector V(S). The initial test is to use a deep net classifier to learn the second digit of S from the vector V(S).
