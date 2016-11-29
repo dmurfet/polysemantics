@@ -9,7 +9,9 @@ First you need a working installation of the commutative algebra package [Singul
 conda install -c jjhelmus tensorflow=0.10.0rc0
 ```
 
-Obviously the version may have changed since this file was written, so check [the website](https://anaconda.org/jjhelmus/tensorflow). An alternative way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo, on which our `hidden.py` is heavily based). There is documentation for [TensorFlow slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md).
+Obviously the version may have changed since this file was written, so check [the website](https://anaconda.org/jjhelmus/tensorflow). Our server is at `https://limitordinal.org:8888` but this is not for public use!
+
+An alternative way to get TensorFlow working is to use an AMI with everything [already set up](http://erikbern.com/2015/11/12/installing-tensorflow-on-aws/) (you can test that things are working using the instructions at the end of [this page](http://ramhiser.com/2016/01/05/installing-tensorflow-on-an-aws-ec2-instance-with-gpu-support/)). Good examples of using TensorFlow can be found [here](https://bcomposes.wordpress.com/2015/11/26/simple-end-to-end-tensorflow-examples/) (which is a blog about [this](https://github.com/jasonbaldridge/try-tf.git) GitHub repo, on which our `hidden.py` is heavily based). There is documentation for [TensorFlow slim](https://github.com/tensorflow/models/blob/master/inception/inception/slim/README.md).
 
 For an explanation of the mathematics behind this code, see [Murfet](http://arxiv.org/abs/1407.2650).
 
