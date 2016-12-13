@@ -10,4 +10,4 @@ This is a list of background reading for the paper "Linear logic and recurrent n
 
 * For RNNs in TensorFlow see [this](http://r2rt.com/recurrent-neural-networks-in-tensorflow-i.html) and [this](http://r2rt.com/recurrent-neural-networks-in-tensorflow-ii.html).
 
-* The theory behind our approach is differential linear logic, which is a fancy version of automatic differentiation. For the latter, see [automatic differentiation in machine learning](https://justindomke.wordpress.com/2009/02/17/automatic-differentiation-the-most-criminally-underused-tool-in-the-potential-machine-learning-toolbox/) and the INRIA guide [What is automatic differentiation?](https://www-sop.inria.fr/tropics/ad/whatisad.html)
+* The theory behind our approach is differential linear logic, which is a fancy version of automatic differentiation. For the role of automatic differentiation in machine learning and backpropagation specifically, see [these lecture notes](http://users.cecs.anu.edu.au/~jdomke/courses/sml/09autodiff_nnets.pdf) and the INRIA guide [What is automatic differentiation?](https://www-sop.inria.fr/tropics/ad/whatisad.html)
