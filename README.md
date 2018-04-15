@@ -1,5 +1,5 @@
 # polysemantics
-The polynomial semantics of linear logic interprets linear logic programs as matrices of polynomials. We compute these matrices using Singular and do machine learning on them with Python and TensorFlow. If you have any questions, please don't hesitate to [get in touch](mailto:d.murfet@unimelb.edu.au).
+The polynomial semantics of linear logic interprets linear logic programs as matrices of polynomials. We compute these matrices using Singular and do machine learning on them with Python and TensorFlow. If you have any questions, please don't hesitate to [get in touch](mailto:d.murfet@unimelb.edu.au). **Update April 2018:** this project was continued in [this repo](https://github.com/dmurfet/deeplinearlogic) which was itself abandoned in early 2017 (but made public in 2018). For more on this subject, see the paper "Derivatives of Turing machines in linear logic" by J. Clift and D. Murfet.
 
 # Installation & Usage
 
